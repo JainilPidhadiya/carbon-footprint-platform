@@ -1,51 +1,59 @@
 # 🌱 EcoTrack – Carbon Footprint Awareness Platform
 
-## Overview
+> Helping individuals understand, track, and reduce their environmental impact through personalized insights, sustainability challenges, and actionable recommendations.
 
-EcoTrack is an accessibility-first web platform that helps individuals understand, track, and reduce their carbon footprint through personalized insights, goal tracking, sustainability challenges, and actionable recommendations.
-
-The platform transforms complex environmental data into simple, understandable metrics that encourage users to make more sustainable daily choices.
+![Dashboard Screenshot](./screenshots/dashboard.png)
 
 ---
 
-## Problem Statement
+# Problem Statement
 
-Many individuals want to reduce their environmental impact but struggle to:
+Many people want to live sustainably but struggle to understand how their daily habits contribute to carbon emissions.
 
-* Understand which daily activities contribute most to their carbon footprint.
-* Measure and track emissions over time.
-* Receive practical and personalized sustainability guidance.
-* Stay motivated through long-term behavior change.
+Existing carbon calculators often provide a one-time result without helping users take meaningful action afterward.
 
-As a result, awareness often fails to translate into action.
+Users need a simple way to:
 
----
-
-## Solution
-
-EcoTrack provides an interactive and user-friendly platform that:
-
-* Calculates carbon emissions across key lifestyle categories.
-* Visualizes environmental impact through dashboards and analytics.
-* Generates personalized sustainability recommendations.
-* Tracks progress toward reduction goals.
-* Encourages engagement through challenges and achievements.
-* Provides an Eco Score to measure overall sustainability performance.
+* Measure their carbon footprint
+* Track progress over time
+* Understand major emission sources
+* Receive actionable sustainability guidance
+* Stay motivated through goals and achievements
 
 ---
 
-## Key Features
+# Solution
 
-### 🧮 Carbon Footprint Calculator
+EcoTrack transforms carbon awareness into actionable behavior change.
 
-Calculate estimated emissions from:
+The platform enables users to:
+
+* Calculate their carbon footprint
+* Track sustainability progress
+* Receive personalized recommendations
+* Complete weekly environmental challenges
+* Earn achievement badges
+* Improve their Eco Score
+* Forecast future emission reductions
+
+The application is designed to be lightweight, accessible, mobile-friendly, and fully client-side.
+
+---
+
+# Key Features
+
+## 🧮 Carbon Footprint Calculator
+
+Calculate emissions from:
 
 * Transportation
 * Electricity Usage
 * Food Consumption
 * Waste Management
 
-### 📊 Analytics Dashboard
+---
+
+## 📊 Dashboard Analytics
 
 Visual insights including:
 
@@ -55,7 +63,7 @@ Visual insights including:
 * Goal Progress
 * Reduction Performance
 
-### 🤖 Sustainability Advisor
+## 🤖 Sustainability Advisor
 
 Provides personalized recommendations based on:
 
@@ -64,7 +72,7 @@ Provides personalized recommendations based on:
 * Reduction opportunities
 * Sustainability goals
 
-### 🎯 Goal Tracking
+## 🎯 Goal Tracking
 
 Users can:
 
@@ -72,15 +80,16 @@ Users can:
 * Track progress
 * Monitor improvements over time
 
-### 🏆 Gamification System
+## 🏆 Gamification System
 
 Includes:
 
 * Weekly Sustainability Challenges
 * Achievement Badges
-* Progress Rewards
+* Sustainability Streaks
+* XP Progress
 
-### 🌍 Eco Score
+## 🌍 Eco Score
 
 A dynamic score that reflects:
 
@@ -91,79 +100,63 @@ A dynamic score that reflects:
 
 ---
 
-## Architecture
+# Screenshots
 
-### Application Structure
+## Dashboard
 
-```text
-src
-├── components
-├── features
-│   ├── calculator
-│   ├── dashboard
-│   ├── ecoAdvisor
-│   ├── gamification
-│   └── history
-├── services
-├── store
-├── types
-├── utils
-├── tests
-├── App.tsx
-└── main.tsx
-```
+![Dashboard](./screenshots/dashboard.png)
 
-### Design Principles
+## Carbon Calculator
 
-* Feature-based architecture
-* Separation of concerns
-* Reusable components
-* Strong TypeScript typing
-* Testable business logic
-* Accessibility-first design
+![Calculator](./screenshots/calculator.png)
+
+## Sustainability Advisor
+
+![Advisor](./screenshots/advisor.png)
+
+## Challenges & Achievements
+
+![Gamification](./screenshots/gamification.png)
 
 ---
 
-## Tech Stack
+# Architecture
 
-### Frontend
+![alt text](<Carbon Calculator Ecosystem-2026-06-20-043833.png>)
+
+# Tech Stack
+
+## Frontend
 
 * React
 * TypeScript
 * Vite
 * Tailwind CSS
 
-### State Management
+## State Management
 
 * Zustand
 * Zustand Persist Middleware
 
-### Forms & Validation
+## Forms & Validation
 
 * React Hook Form
 * Zod
 
-### Data Visualization
+## Charts
 
 * Recharts
 
-### Testing
+## Testing
 
 * Vitest
 * React Testing Library
 
-### Code Quality
-
-* ESLint
-* Prettier
-
 ---
 
-## Carbon Calculation Logic
+# Core Algorithms
 
-Carbon emissions are estimated using predefined emission factors across multiple categories.
-
-### Formula
+## Carbon Calculation
 
 ```text
 Total Emission =
@@ -173,154 +166,134 @@ Food +
 Waste
 ```
 
-Each category uses configurable emission factors allowing future expansion and improved accuracy.
+---
+
+## Eco Score
+
+Inputs:
+
+* Carbon Emissions
+* Goal Progress
+* Challenge Completion
+
+Outputs:
+
+* Score (0–100)
+* Rating
+* Improvement Suggestions
 
 ---
 
-## Eco Score Algorithm
+## Forecast Engine
 
-The Eco Score is calculated using:
+Projects future emissions using:
 
-* Total carbon emissions
-* User reduction goals
-* Weekly challenge completion
-* Sustainability achievements
-
-### Score Range
-
-| Score  | Rating            |
-| ------ | ----------------- |
-| 0-39   | Needs Improvement |
-| 40-59  | Average           |
-| 60-79  | Good              |
-| 80-100 | Excellent         |
-
-The score provides an easy-to-understand measure of environmental performance.
+* Current Trends
+* Goal Progress
+* Challenge Participation
 
 ---
 
-## Accessibility
+# Accessibility
 
-Accessibility was treated as a first-class requirement.
-
-Implemented features include:
+The application follows accessibility-first principles:
 
 * Semantic HTML
 * Keyboard Navigation
-* Focus Management
-* ARIA Labels
 * Screen Reader Support
-* High Contrast Design
-* Responsive Layouts
+* ARIA Labels
+* Focus Management
+* Responsive Design
 * WCAG 2.1 AA Considerations
 
 ---
 
-## Security
+# Security
 
-The application follows secure development practices:
+Implemented security measures include:
 
-* Input Validation using Zod
-* Safe Data Handling
-* Type-Safe State Management
-* No Sensitive Data Exposure
+* Input Validation
+* Strong TypeScript Typing
+* Defensive State Management
+* Error Handling
+* Safe Local Persistence
 * Sanitized User Inputs
-* Secure Local Storage Usage
 
 ---
 
-## Performance Optimizations
+# Testing
 
-Implemented optimizations include:
+Unit tests cover:
 
-* Component Memoization
+* Carbon Calculations
+* Eco Score Engine
+* Achievement Logic
+* Forecast Engine
+* Sustainability Advisor
+
+Testing tools:
+
+* Vitest
+* React Testing Library
+
+---
+
+# Performance Optimizations
+
+* Zustand Lightweight Store
+* Local Persistence
 * Lazy Loading
-* Optimized Re-Renders
-* Lightweight Zustand Store
-* Efficient State Updates
-* Vite Production Bundling
+* Efficient Re-Renders
+* Optimized Bundles
 
 ---
 
-## Testing Strategy
+# Project Structure
 
-The project follows a layered testing approach.
+```text
+src
 
-### Unit Tests
+components
 
-* Carbon Calculation Service
-* Eco Score Service
-* Achievement Service
-* Validation Utilities
+features
+ ├── calculator
+ ├── dashboard
+ ├── ecoAdvisor
+ ├── gamification
+ └── history
 
-### Component Tests
+services
+ ├── carbon.service.ts
+ ├── ecoScore.service.ts
+ ├── achievement.service.ts
+ ├── challenge.service.ts
+ ├── advisor.service.ts
 
-* Forms
-* Dashboard Widgets
-* User Interactions
-
-### Coverage Focus
-
-* Business Logic
-* Edge Cases
-* Invalid Inputs
-* Accessibility Behaviors
-
----
-
-## User Journey
-
-1. Complete Carbon Footprint Assessment
-2. Review Dashboard Insights
-3. Receive Sustainability Recommendations
-4. Set Reduction Goals
-5. Complete Weekly Challenges
-6. Improve Eco Score
-7. Unlock Achievements
+store
+types
+utils
+tests
+```
 
 ---
 
-## Future Enhancements
-
-Potential future improvements include:
-
-* Real AI Integration
-* Carbon Forecasting
-* Utility Bill Integration
-* Smart Device Data Sync
-* Community Challenges
-* Regional Emission Benchmarks
-* Carbon Offset Recommendations
-
----
-
-## Installation
-
-### Clone Repository
+# Installation
 
 ```bash
 git clone <repository-url>
-```
 
-### Install Dependencies
-
-```bash
 npm install
-```
 
-### Start Development Server
-
-```bash
 npm run dev
 ```
 
-### Build Production Version
+Build:
 
 ```bash
 npm run build
 ```
 
-### Run Tests
+Run tests:
 
 ```bash
 npm run test
@@ -328,58 +301,30 @@ npm run test
 
 ---
 
-## Assumptions
+# Future Enhancements
 
-* Carbon calculations use estimated emission factors.
-* User data is stored locally within the browser.
-* The platform focuses on awareness and behavioral improvement rather than scientific carbon auditing.
-
----
-
-## Evaluation Criteria Alignment
-
-### Code Quality
-
-✔ Modular Architecture
-
-✔ Strong TypeScript Usage
-
-✔ Reusable Components
-
-### Security
-
-✔ Input Validation
-
-✔ Safe State Management
-
-✔ Secure Data Handling
-
-### Efficiency
-
-✔ Optimized Rendering
-
-✔ Lightweight State Management
-
-✔ Client-Side Persistence
-
-### Testing
-
-✔ Unit Testing
-
-✔ Component Testing
-
-✔ Validation Coverage
-
-### Accessibility
-
-✔ Keyboard Navigation
-
-✔ Screen Reader Support
-
-✔ Semantic HTML
+* Real AI Integration
+* Utility Bill Integration
+* Carbon Offset Marketplace
+* Community Challenges
+* Regional Emission Benchmarks
+* Smart Device Integrations
 
 ---
 
-## Team
+# Challenge Evaluation Alignment
 
-Built for the Carbon Footprint Awareness Platform Challenge with a focus on sustainability, accessibility, maintainability, and user engagement.
+| Criteria        | Implementation                             |
+| --------------- | ------------------------------------------ |
+| Code Quality    | Modular Architecture, TypeScript, Services |
+| Security        | Validation, Safe Persistence               |
+| Efficiency      | Client-Side Architecture, Zustand          |
+| Testing         | Unit Tests & Service Validation            |
+| Accessibility   | Keyboard Navigation, ARIA Labels           |
+| User Experience | Dashboard, Forecasts, Gamification         |
+
+---
+
+# Impact
+
+EcoTrack helps transform carbon awareness into measurable action by combining analytics, personalized recommendations, and behavioral motivation in a single accessible platform.
