@@ -43,7 +43,7 @@ export function calculateEcoScore(
   }
 
   // 2. Emission Performance Score (70% weight)
-  let emissionScore = 0;
+  let emissionScore: number;
   if (safeCurrent <= safeTarget) {
     emissionScore = 70; // full score if within budget
   } else {

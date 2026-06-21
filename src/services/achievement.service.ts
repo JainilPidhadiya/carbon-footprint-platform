@@ -36,7 +36,7 @@ export function evaluateAchievements(
       return achievement;
     }
 
-    let shouldUnlock = false;
+    let shouldUnlock: boolean;
 
     switch (achievement.id) {
       case 'ach-first-activity':

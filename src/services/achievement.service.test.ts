@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { describe, it, expect } from 'vitest';
 import { evaluateAchievements, getUnlockedAchievements } from './achievement.service';
 import type { Achievement, CarbonActivity } from '../types';

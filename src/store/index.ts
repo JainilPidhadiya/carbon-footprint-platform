@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { UserProfile, EmissionActivity, EmissionCategory, Challenge, Badge, CalculatorAnswers } from '../types';
@@ -214,7 +215,8 @@ export const useAppStore = create<AppState>()(
         return { theme: nextTheme };
       }),
 
-      setBaseline: (carbonScore, _breakdown) => set((state) => {
+      setBaseline: (carbonScore, breakdown) => set((state) => {
+        void breakdown;
         if (!state.user) return {};
         const targetMonthly = Math.round((carbonScore * 0.7) / 12);
         return {
@@ -227,7 +229,7 @@ export const useAppStore = create<AppState>()(
       }),
 
       addActivity: (activity) => {
-        let factor = 0;
+        let factor: number;
         if (activity.category === 'transport') {
           const mode = activity.description.toLowerCase().includes('metro') || activity.description.toLowerCase().includes('bus')
             ? 'public_transit'
