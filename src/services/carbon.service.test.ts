@@ -3,7 +3,8 @@ import {
   calculateTransportEmission, 
   calculateElectricityEmission, 
   calculateFoodEmission, 
-  calculateTotalEmission 
+  calculateTotalEmission,
+  calculateBaseline
 } from './carbon.service';
 
 describe('Carbon Calculation Service', () => {
@@ -78,4 +79,49 @@ describe('Carbon Calculation Service', () => {
     });
   });
 
+  describe('calculateBaseline', () => {
+    it('should calculate correct carbon values for a vegan diet and low transport footprint', () => {
+      const answers = {
+        transportMode: 'bicycle' as const,
+        weeklyDistance: 10,
+        electricityBill: 0,
+        heatingFuel: 'none' as const,
+        dietType: 'vegan' as const,
+        recyclePaper: true,
+        recyclePlastic: true,
+        recycleGlass: true,
+      };
+
+      const results = calculateBaseline(answers);
+
+      expect(results.breakdown.transport).toBe(0);
+      expect(results.breakdown.energy).toBe(0);
+      expect(results.breakdown.food).toBe(548);
+      expect(results.breakdown.waste).toBe(1044);
+      expect(results.total).toBe(548 + 1044);
+    });
+
+    it('should calculate higher values for petrol car transit and high-meat diets', () => {
+      const answers = {
+        transportMode: 'car_petrol' as const,
+        weeklyDistance: 100,
+        electricityBill: 200,
+        heatingFuel: 'gas' as const,
+        dietType: 'high_meat' as const,
+        recyclePaper: false,
+        recyclePlastic: false,
+        recycleGlass: false,
+      };
+
+      const results = calculateBaseline(answers);
+
+      expect(results.breakdown.transport).toBe(884);
+      expect(results.breakdown.energy).toBe(3072);
+      expect(results.breakdown.food).toBe(3285);
+      expect(results.breakdown.waste).toBe(1440);
+      expect(results.total).toBe(884 + 3072 + 3285 + 1440);
+    });
+  });
+
 });
+

@@ -107,10 +107,10 @@ export function generateRecommendations(
   const categorySums: Record<CarbonCategory, number> = { transport: 0, energy: 0, food: 0, waste: 0 };
   let totalEmissions = 0;
 
-  if (activities) {
+  if (Array.isArray(activities)) {
     for (const act of activities) {
       if (act && typeof act.co2e === 'number' && !isNaN(act.co2e) && act.co2e > 0) {
-        categorySums[act.category] = (categorySums[act.category] || 0) + act.co2e;
+        categorySums[act.category as CarbonCategory] = (categorySums[act.category as CarbonCategory] || 0) + act.co2e;
         totalEmissions += act.co2e;
       }
     }

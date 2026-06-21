@@ -3,6 +3,10 @@
  * Designed by Senior TypeScript Architect
  */
 
+export type TransportMode = 'car_petrol' | 'car_diesel' | 'car_ev' | 'public_transit' | 'bicycle' | 'walking';
+export type DietType = 'vegan' | 'vegetarian' | 'low_meat' | 'high_meat';
+export type HeatingFuel = 'gas' | 'electric' | 'oil' | 'none';
+
 /**
  * Standard categories of carbon-emitting activities.
  */
@@ -92,7 +96,7 @@ export interface Achievement {
   readonly id: string;
   readonly name: string;
   readonly description: string;
-  readonly iconName: string;
+  readonly iconName: 'Leaf' | 'Apple' | 'Lightbulb' | 'Award' | (string & {});
   readonly isUnlocked: boolean;
   readonly unlockCriteria: string;
   readonly unlockedAt?: string;

@@ -45,8 +45,27 @@ export function evaluateAchievements(
         break;
       
       case 'ach-three-activities':
-      case 'b-2': // legacy compat
         shouldUnlock = safeActivitiesCount >= 3;
+        break;
+
+      case 'b-2': // legacy compat
+        {
+          const plantMealsCount = Array.isArray(activities) ? activities.filter(
+            (act) => act.category === 'food' && 
+            typeof act.description === 'string' &&
+            (act.description.toLowerCase().includes('vegan') || act.description.toLowerCase().includes('vegetarian'))
+          ).length : 0;
+          shouldUnlock = plantMealsCount >= 3;
+        }
+        break;
+
+      case 'b-3':
+        {
+          const lowElectricityCount = Array.isArray(activities) ? activities.filter(
+            (act) => act.category === 'energy' && act.value < 10
+          ).length : 0;
+          shouldUnlock = lowElectricityCount >= 1;
+        }
         break;
 
       case 'ach-seven-streak':
@@ -54,8 +73,12 @@ export function evaluateAchievements(
         break;
 
       case 'ach-high-score':
-      case 'b-4': // legacy compat
         shouldUnlock = safeScore > 80;
+        break;
+
+      case 'b-4': // legacy compat (XP >= 300)
+        // Here we pass XP as the score value from the store
+        shouldUnlock = safeScore >= 300;
         break;
 
       case 'ach-five-challenges':

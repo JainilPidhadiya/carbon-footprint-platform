@@ -13,7 +13,7 @@ import {
   Bot,
   Trophy
 } from 'lucide-react';
-import { Button } from '../components/ui/Button';
+import { Button } from '../components/ui';
 
 export interface AppLayoutProps {
   children: React.ReactNode;

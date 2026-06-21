@@ -4,6 +4,7 @@
  */
 
 import type { CarbonActivity, ForecastDataPoint, ForecastReport } from '../types';
+import { roundTo } from '../utils/mathUtils';
 
 /**
  * Generates a 30-day projection of daily carbon emissions.
@@ -19,7 +20,7 @@ export function generateForecast(
   challengeCompletionPct: number
 ): ForecastReport {
   const safeTarget = typeof monthlyTarget === 'number' && monthlyTarget > 0 ? monthlyTarget : 450;
-  const targetDailyLine = Math.round((safeTarget / 30) * 10) / 10;
+  const targetDailyLine = roundTo(safeTarget / 30, 1);
 
   // 1. Calculate baseline daily average from activities
   let totalCo2e = 0;
@@ -29,7 +30,7 @@ export function generateForecast(
     activities.forEach((act) => {
       if (typeof act.co2e === 'number' && !isNaN(act.co2e) && act.co2e > 0) {
         totalCo2e += act.co2e;
-        if (act.loggedAt) {
+        if (typeof act.loggedAt === 'string') {
           const dateStr = act.loggedAt.split('T')[0];
           uniqueDays.add(dateStr);
         }
@@ -68,7 +69,7 @@ export function generateForecast(
     // 7-day cyclical variance to simulate real activity patterns (sine wave)
     const variance = Math.sin((t * 2 * Math.PI) / 7) * (currentDailyAverage * 0.08);
 
-    const projectedEmission = Math.max(0.1, Math.round((baseVal + variance) * 10) / 10);
+    const projectedEmission = Math.max(0.1, roundTo(baseVal + variance, 1));
     accumulatedProjected += projectedEmission;
 
     const pointDate = new Date(baseDate);
@@ -82,11 +83,11 @@ export function generateForecast(
     });
   }
 
-  const totalProjected30Days = Math.round(accumulatedProjected * 10) / 10;
+  const totalProjected30Days = roundTo(accumulatedProjected, 1);
   const rawPercentChange = currentDailyAverage > 0
     ? ((targetDailyAverage - currentDailyAverage) / currentDailyAverage) * 100
     : 0;
-  const percentChange = Math.round(rawPercentChange * 10) / 10;
+  const percentChange = roundTo(rawPercentChange, 1);
 
   let changeDirection: 'decreasing' | 'stable' | 'increasing' = 'stable';
   if (percentChange < -1.5) {
