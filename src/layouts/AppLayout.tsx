@@ -8,10 +8,8 @@ import {
   GraduationCap, 
   Sun, 
   Moon, 
-  Zap,
   Leaf,
-  Bot,
-  Trophy
+  Bot
 } from 'lucide-react';
 import { Button } from '../components/ui';
 
@@ -37,11 +35,11 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
 
   const navItems = [
     { label: 'Dashboard', path: '/', icon: LayoutDashboard },
-    { label: 'Baseline', path: '/calculator', icon: Calculator },
-    { label: 'Log Tracker', path: '/tracker', icon: History },
-    { label: 'Learn & Quiz', path: '/education', icon: GraduationCap },
-    { label: 'AI Coach', path: '/coach', icon: Bot },
-    { label: 'Challenges', path: '/challenges', icon: Trophy },
+    { label: '1. Measure Baseline', path: '/calculator', icon: Calculator },
+    { label: '2. Climate Literacy', path: '/education', icon: GraduationCap },
+    { label: '3. Track & Analyze', path: '/tracker', icon: History },
+    { label: '4. Reduce Footprint', path: '/challenges', icon: Leaf },
+    { label: '5. AI Carbon Advisor', path: '/coach', icon: Bot },
   ];
 
   return (
@@ -64,14 +62,14 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
           </Link>
 
           <div className="flex items-center gap-3">
-            {/* XP Points Tracker Widget */}
+            {/* Carbon Saved Header Widget */}
             <div 
-              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-600 dark:text-amber-400 font-semibold text-sm shadow-sm"
-              aria-label={`You have ${xp} Experience Points`}
-              title="Your Eco XP Points"
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-600 dark:text-emerald-450 font-semibold text-sm shadow-sm"
+              aria-label={`You have saved ${xp} kg of CO₂`}
+              title="Your Total Carbon Savings"
             >
-              <Zap className="w-4 h-4 fill-current" />
-              <span>{xp} XP</span>
+              <Leaf className="w-4 h-4 text-emerald-500 fill-current" />
+              <span>{xp} kg CO₂ Saved</span>
             </div>
 
             {/* User Profile Badge (Desktop) */}

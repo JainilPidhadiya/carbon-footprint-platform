@@ -77,43 +77,43 @@ export const getResponse = (
   switch (promptKey) {
     case 'analyze': {
       if (activities.length === 0) {
-        return "I don't see any activity logs yet! Go ahead and log transport, meals, or electricity usage on the tracker page. Once you do, I will analyze your impact share.";
+        return "I don't see any activity logs yet! Go ahead and log transport, meals, or electricity usage on the tracker page. Once you do, I will analyze your category emissions and monthly carbon budget.";
       }
       
       let analysis = `Based on your logs, you have emitted **${Math.round(totalMonthlyEmissions)} kg CO2e** this month. `;
       if (dominant === 'transport') {
-        analysis += `Your primary source is **Transport** (${Math.round(categorySums.transport)} kg). Swap a few drives for train rides or cycling to make the biggest impact.`;
+        analysis += `Your primary emission source is **Transport** (${Math.round(categorySums.transport)} kg CO2e). Swapping gasoline commutes for public transit or cycling represents the highest immediate carbon reduction potential.`;
       } else if (dominant === 'food') {
-        analysis += `Your largest footprint segment is **Diet & Food** (${Math.round(categorySums.food)} kg). Swapping red meat meals for vegetarian or vegan options represents the fastest individual carbon reductions available.`;
+        analysis += `Your largest footprint driver is **Diet & Food** (${Math.round(categorySums.food)} kg CO2e). Substituting high-emission red meats with vegetarian options can reduce meal-related carbon intensity by up to 60%.`;
       } else if (dominant === 'energy') {
-        analysis += `Your biggest draw is **Home Energy** (${Math.round(categorySums.energy)} kg). Lower your space heating thermostat by 1°C or ensure you use LED lighting to save watts.`;
+        analysis += `Your major carbon draw is **Home Energy** (${Math.round(categorySums.energy)} kg CO2e). Lowering space heating thermostats by 1°C and switching to LED fixtures offers the most efficient path to reduce residential footprint.`;
       } else {
-        analysis += `Your carbon footprint is fairly evenly distributed. Great tracking! Maintain your goals by checking the weekly challenges list.`;
+        analysis += `Your carbon footprint is evenly distributed across sectors. Great tracking! Continue tracking to discover more personalized carbon-saving opportunities.`;
       }
       return analysis;
     }
 
     case 'challenge': {
       const suggestions = [
-        "Swap your next commute under 5km for walking or bicycle transit. That immediately eliminates car emissions.",
-        "Try going fully plant-based for dinner today. Lentils, beans, or tofu emit 90% less carbon than beef.",
-        "Turn off standby power strips at night. Standby power represents up to 10% of standard home electricity footprints.",
-        "Audit your plastic recycling bin. Rinsing and compacting plastic ensures sorting centers can process it."
+        "Swap a vehicle commute under 5km for walking or cycling (avoids 0.17 kg CO2e per km).",
+        "Swap beef for a plant-based alternative for one meal (reduces food carbon intensity by up to 2.5 kg CO2e per serving).",
+        "Unplug household devices on standby at night (standby power accounts for up to 10% of home electricity emissions).",
+        "Optimize paper and cardboard recycling (avoids methane release from decomposing organic materials in landfill waste)."
       ];
-      return `Here is a daily task suggestion: **${suggestions[Math.floor(Math.random() * suggestions.length)]}**`;
+      return `Here is a carbon-saving recommendation: **${suggestions[Math.floor(Math.random() * suggestions.length)]}**`;
     }
 
     case 'energy_tips':
-      return "To optimize heating energy, install draft excluders around outer doors and lower boiler flow temperatures to 55°C. For electricity, swap traditional halogens to LED lights (saves 85% energy) and clean refrigerator condenser coils annually to maximize heat exchange efficiency.";
+      return "To lower heating carbon emissions, install draft excluders around outer doors and lower boiler flow temperatures to 55°C (saves ~180kg CO2e/year). For electricity emissions, swap traditional halogens to LED lights (saves 85% energy, reducing home footprint by up to 200kg CO2e/year).";
 
     default:
-      return "I am here to guide you toward carbon reduction! Let's explore your analytics or complete weekly challenges.";
+      return "I am here to guide you toward carbon footprint reduction! Let's explore your analytics or review your carbon reduction plans.";
   }
 };
 
 /** Quick suggestions for user interaction options. */
 export const quickPrompts = [
-  { key: 'analyze', text: '📊 Analyze my carbon log', description: 'Get a personalized audit' },
-  { key: 'challenge', text: '💡 Suggest a green challenge', description: 'Get an actionable prompt' },
-  { key: 'energy_tips', text: '⚡ Home energy hacks', description: 'Reduce electricity & gas' },
+  { key: 'analyze', text: '📊 Audit carbon footprint', description: 'Detailed breakdown of category emissions and budget limits' },
+  { key: 'challenge', text: '🌱 Suggest carbon reduction plan', description: 'Get a direct action to lower transport, food, or waste emissions' },
+  { key: 'energy_tips', text: '⚡ Decarbonize home energy', description: 'Strategies to reduce electricity and space heating emissions' },
 ];

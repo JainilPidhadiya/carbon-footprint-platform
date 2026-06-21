@@ -162,19 +162,35 @@ export const TrendProjectionChart: React.FC<TrendProjectionChartProps> = ({
         </div>
       </CardBody>
       {trendTab === 'forecast' && (
-        <CardFooter className="px-5 py-3 bg-slate-50 dark:bg-slate-800/20 border-t border-slate-200 dark:border-slate-800/30 flex justify-between items-center text-xs text-slate-500 dark:text-slate-400">
-          <span>
-            Change direction: <strong className={`capitalize ${
-              forecast.changeDirection === 'decreasing'
-                ? 'text-emerald-500'
-                : forecast.changeDirection === 'increasing'
-                ? 'text-rose-500'
-                : 'text-amber-500'
-            }`}>{forecast.changeDirection}</strong>
-          </span>
-          <span>
-            Projected next 30 days: <strong>{forecast.totalProjected30Days} kg CO2e</strong> ({forecast.percentChange >= 0 ? '+' : ''}{forecast.percentChange}%)
-          </span>
+        <CardFooter className="px-5 py-4 bg-slate-50 dark:bg-slate-800/20 border-t border-slate-200 dark:border-slate-800/30 flex flex-col gap-3 text-xs text-slate-500 dark:text-slate-400 text-left">
+          <div className="flex justify-between items-center w-full">
+            <span>
+              Projection Trend: <strong className={`capitalize ${
+                forecast.changeDirection === 'decreasing'
+                  ? 'text-emerald-500'
+                  : forecast.changeDirection === 'increasing'
+                  ? 'text-rose-500'
+                  : 'text-amber-500'
+              }`}>{forecast.changeDirection}</strong>
+            </span>
+            <span>
+              Projected 30-Day Footprint: <strong>{forecast.totalProjected30Days} kg CO₂e</strong> ({forecast.percentChange >= 0 ? '+' : ''}{forecast.percentChange}%)
+            </span>
+          </div>
+          <div className="text-[11px] bg-slate-100/50 dark:bg-slate-900/40 p-2.5 rounded-xl border border-slate-200/40 dark:border-slate-800/50 leading-relaxed">
+            <span className="font-bold text-slate-700 dark:text-slate-300 block mb-0.5">Forecast Diagnostic:</span>
+            {forecast.changeDirection === 'decreasing' 
+              ? 'Your carbon footprint trend is projected to decrease because your recent logged activities utilize low-emission transport alternatives and plant-based foods.' 
+              : forecast.changeDirection === 'increasing' 
+              ? 'Your carbon footprint trend is increasing due to highly intensive home heating fuel logs or petrol car commutes. Immediate adjustments are recommended to curb this progression.' 
+              : 'Your carbon projections are currently stable. Log transport and utility activities consistently to unlock more detailed forecast diagnostics.'}
+          </div>
+          <div className="flex justify-between items-center w-full pt-1 text-[11px]">
+            <span className="font-semibold text-slate-650 dark:text-slate-400">💡 Personalized Reduction Opportunity:</span>
+            <strong className="text-emerald-600 dark:text-emerald-450 font-bold">
+              Save up to {Math.round(forecast.totalProjected30Days * 0.15)} kg CO₂ (15% reduction potential)
+            </strong>
+          </div>
         </CardFooter>
       )}
     </Card>

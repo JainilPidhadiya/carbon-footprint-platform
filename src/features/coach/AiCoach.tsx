@@ -17,7 +17,7 @@ export const AiCoach: React.FC = () => {
     {
       id: 'welcome',
       sender: 'ai',
-      text: `Hello! I am your AI Eco Coach. I analyze your carbon log telemetry and help you optimize your baseline. What can I help you with today?`,
+      text: `Hello! I am your AI Carbon Advisor. I analyze your carbon log telemetry and help you optimize your baseline. What can I help you with today?`,
       timestamp: new Date(),
     },
   ]);
@@ -61,10 +61,10 @@ export const AiCoach: React.FC = () => {
       <div className="text-left">
         <h1 className="font-display font-black text-2xl sm:text-3xl tracking-tight text-slate-900 dark:text-slate-50 mb-1 flex items-center gap-2">
           <Sparkles className="w-7 h-7 text-emerald-500 fill-current" />
-          AI Sustainability Coach
+          AI Carbon Advisor
         </h1>
         <p className="text-sm text-slate-500 dark:text-slate-400">
-          Get real-time carbon data analysis and actionable recommendations from your digital eco coach.
+          Get real-time carbon data analysis and actionable recommendations from your digital carbon advisor.
         </p>
       </div>
 
@@ -74,7 +74,7 @@ export const AiCoach: React.FC = () => {
         <Card className="md:col-span-2 shadow-lg border-slate-200/60 dark:border-slate-800/80 flex flex-col h-[520px]">
           <CardHeader className="p-4 flex items-center gap-2 bg-slate-50/50 dark:bg-slate-900/10">
             <Bot className="w-5 h-5 text-emerald-500" />
-            <span className="text-sm font-bold text-slate-900 dark:text-slate-100">Eco Coach Core v1.0</span>
+            <span className="text-sm font-bold text-slate-900 dark:text-slate-100">Carbon Advisor Console v1.0</span>
             {isTyping && (
               <span className="text-[10px] text-emerald-500 font-bold ml-auto animate-pulse flex items-center gap-1">
                 Typing...

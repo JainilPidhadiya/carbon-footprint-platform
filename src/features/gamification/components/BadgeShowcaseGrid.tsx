@@ -13,7 +13,7 @@ export const BadgeShowcaseGrid: React.FC<BadgeShowcaseGridProps> = ({ badges }) 
     <section className="md:col-span-2 space-y-4 text-left">
       <h2 className="text-lg font-bold font-display text-slate-900 dark:text-slate-100 flex items-center gap-2">
         <Award className="w-5 h-5 text-emerald-500" />
-        Badge Showcase
+        Eco-Impact Milestones
       </h2>
 
       <Card className="shadow-sm border-slate-200/60 dark:border-slate-800/80">
@@ -40,11 +40,11 @@ export const BadgeShowcaseGrid: React.FC<BadgeShowcaseGridProps> = ({ badges }) 
                   <h4 className="font-bold text-sm text-slate-900 dark:text-slate-100">{b.name}</h4>
                   {b.isUnlocked ? (
                     <span className="text-[8px] uppercase font-bold tracking-widest text-emerald-650 bg-emerald-500/10 px-1.5 py-0.5 rounded-full border border-emerald-500/10">
-                      Unlocked
+                      Achieved
                     </span>
                   ) : (
                     <span className="text-[8px] uppercase font-bold tracking-widest text-slate-400 bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded-full border border-slate-200 dark:border-slate-700">
-                      Locked
+                      Active Target
                     </span>
                   )}
                 </div>

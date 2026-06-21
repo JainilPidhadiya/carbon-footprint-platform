@@ -18,7 +18,7 @@ export const GamifiedChallengesList: React.FC<GamifiedChallengesListProps> = ({
     <section className="md:col-span-3 space-y-4 text-left">
       <h2 className="text-lg font-bold font-display text-slate-900 dark:text-slate-100 flex items-center gap-2">
         <Play className="w-5 h-5 text-emerald-500 rotate-90 fill-current" />
-        Active Weekly Challenges
+        Weekly Carbon Action Plans
       </h2>
 
       <div className="flex flex-col gap-4">
@@ -53,7 +53,7 @@ export const GamifiedChallengesList: React.FC<GamifiedChallengesListProps> = ({
               <div className="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-100 dark:border-slate-800/40">
                 <span className="text-xs font-bold text-amber-600 bg-amber-500/10 px-2.5 py-1 rounded-full flex items-center gap-1 shrink-0">
                   <Zap className="w-3 h-3 fill-current" />
-                  {c.xpReward} XP
+                  {c.xpReward} Eco Pts
                 </span>
 
                 {!c.isCompleted ? (
@@ -64,7 +64,7 @@ export const GamifiedChallengesList: React.FC<GamifiedChallengesListProps> = ({
                       onClick={() => onAccept(c.id)}
                       className="cursor-pointer font-semibold py-2 px-3 text-xs"
                     >
-                      Accept
+                      Pledge Action
                     </Button>
                   ) : (
                     <Button
@@ -73,11 +73,11 @@ export const GamifiedChallengesList: React.FC<GamifiedChallengesListProps> = ({
                       onClick={() => onComplete(c.id)}
                       className="cursor-pointer font-semibold py-2 px-3 text-xs bg-emerald-500 hover:bg-emerald-600 text-white"
                     >
-                      Complete
+                      Verify Action
                     </Button>
                   )
                 ) : (
-                  <span className="text-xs font-bold text-slate-400 px-3">Completed</span>
+                  <span className="text-xs font-bold text-slate-400 px-3">Verified</span>
                 )}
               </div>
             </CardBody>

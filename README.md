@@ -28,13 +28,13 @@ EcoTrack transforms carbon awareness into actionable behavior change.
 
 The platform enables users to:
 
-* Calculate their carbon footprint
-* Track sustainability progress
-* Receive personalized recommendations
-* Complete weekly environmental challenges
-* Earn achievement badges
-* Improve their Eco Score
-* Forecast future emission reductions
+* Calculate their baseline carbon footprint
+* Track monthly emissions over time
+* Compare performance against average citizen carbon benchmarks
+* Receive personalized insights from the AI Carbon Advisor
+* Commit to weekly carbon reduction action plans
+* Earn achievements based on eco-impact milestones
+* Monitor dynamic 30-day carbon projection forecasts
 
 The application is designed to be lightweight, accessible, mobile-friendly, and fully client-side.
 
@@ -46,12 +46,12 @@ Most carbon calculators stop at generating a number.
 
 EcoTrack focuses on behavioral change by combining:
 
-- Carbon measurement
-- Goal tracking
-- Sustainability forecasting
-- Personalized recommendations
-- Gamification
-- Progress visualization
+- Carbon baseline measurement
+- Longitudinal emissions logging
+- Predictive carbon forecasting
+- Personalized reduction advice
+- Action-oriented pledges
+- Direct benchmark comparisons
 
 The platform helps users transform awareness into measurable action.
 
@@ -61,19 +61,19 @@ The platform helps users transform awareness into measurable action.
 
 ✅ Carbon Forecasting
 
-Predicts future emissions based on current trends.
+Predicts future emissions based on current trends, explaining **why** emissions fluctuate.
 
-✅ Eco Score Engine
+✅ Carbon Benchmark Index
 
-Converts sustainability performance into a simple score.
+Converts sustainability performance and regional benchmarks into a simple indicator score.
 
-✅ Sustainability Advisor
+✅ AI Carbon Advisor
 
-Provides personalized recommendations.
+Provides personalized reduction strategies and calculations based on logged telemetry.
 
-✅ Gamified Progress
+✅ Action-Led Progress
 
-Challenges, badges, and streaks encourage long-term engagement.
+Weekly action commitments and verified milestones support long-term carbon accountability.
 
 ✅ Fully Client-Side
 
@@ -87,10 +87,10 @@ Fast, private, and works without backend infrastructure.
 
 Calculate emissions from:
 
-* Transportation
-* Electricity Usage
-* Food Consumption
-* Waste Management
+* Transportation (petrol, diesel, EV, transit, bicycle)
+* Electricity Usage & Heating fuel mix
+* Food Consumption (diet types)
+* Waste Management & recycling offsets
 
 ---
 
@@ -98,53 +98,41 @@ Calculate emissions from:
 
 Visual insights including:
 
-* Total Carbon Emissions
-* Category Breakdown# Lighthouse Audit
+* Executive Carbon Overview Banner
+* Carbon Benchmark & Variance Ledger
+* Category Breakdown & Weekly Trends
+* 30-Day Trend & Threshold Projection Charts
 
-| Metric | Score |
-|----------|----------|
-| Performance | 95+ |
-| Accessibility | 95+ |
-| Best Practices | 95+ |
-| SEO | 90+ |
-* Weekly Trends
-* Goal Progress
-* Reduction Performance
+---
 
-## 🤖 Sustainability Advisor
+## 🤖 AI Carbon Advisor
 
 Provides personalized recommendations based on:
 
-* Emission patterns
-* Lifestyle habits
-* Reduction opportunities
-* Sustainability goals
+* Emission patterns & lifestyle habits
+* Category footprint audits
+* Dynamic decarbonization opportunities
 
-## 🎯 Goal Tracking
+---
+
+## 🎯 Goal Tracking & Benchmarks
 
 Users can:
 
 * Set emission reduction targets
-* Track progress
-* Monitor improvements over time
+* Compare footprint performance against national user averages
+* Track variance margins and reduction metrics over time
 
-## 🏆 Gamification System
+---
+
+## 🏆 Carbon Actions & Milestones
 
 Includes:
 
-* Weekly Sustainability Challenges
-* Achievement Badges
-* Sustainability Streaks
-* XP Progress
-
-## 🌍 Eco Score
-
-A dynamic score that reflects:
-
-* Emission performance
-* Goal achievement
-* Sustainability habits
-* Challenge participation
+* Weekly Carbon Action Plans & Pledges
+* Eco-Impact Milestone badges
+* Climate Literacy guides and assessments
+* Total Carbon Saved tracking (kg CO₂)
 
 ---
 
@@ -158,11 +146,11 @@ A dynamic score that reflects:
 
 ![Calculator](./screenshots/calculator.png)
 
-## Sustainability Advisor
+## AI Carbon Advisor
 
 ![Advisor](./screenshots/advisor.png)
 
-## Challenges & Achievements
+## Carbon Actions & Milestones
 
 ![Gamification](./screenshots/gamification.png)
 
@@ -224,19 +212,19 @@ Waste
 
 ---
 
-## Eco Score
+## Carbon Benchmark Index
 
 Inputs:
 
 * Carbon Emissions
 * Goal Progress
-* Challenge Completion
+* Carbon Action Pledges
 
 Outputs:
 
-* Score (0–100)
-* Rating
-* Improvement Suggestions
+* Index (0–100)
+* Rating comparison (Better/Worse than standard benchmark)
+* Variance margins
 
 ---
 
@@ -246,7 +234,7 @@ Projects future emissions using:
 
 * Current Trends
 * Goal Progress
-* Challenge Participation
+* Action Plan Pledges
 
 ---
 
@@ -291,10 +279,10 @@ Testing tools:
 The application includes automated unit tests covering:
 
 - Carbon calculations
-- Eco score generation
-- Achievement unlock logic
+- Carbon Benchmark Index calculations
+- Milestone unlock logic
 - Forecast engine
-- Sustainability advisor
+- AI Carbon Advisor recommendations
 
 Coverage Focus:
 - Business Logic
@@ -382,9 +370,8 @@ npm run test
 * Real AI Integration
 * Utility Bill Integration
 * Carbon Offset Marketplace
-* Community Challenges
-* Regional Emission Benchmarks
-* Smart Device Integrations
+* Community Carbon Reduction Teams
+* Smart Home Device Integrations (IoT meter integrations)
 
 ---
 
@@ -397,16 +384,23 @@ npm run test
 | Efficiency      | Client-Side Architecture, Zustand          |
 | Testing         | Unit Tests & Service Validation            |
 | Accessibility   | Keyboard Navigation, ARIA Labels           |
-| User Experience | Dashboard, Forecasts, Gamification         |
+| User Experience | Carbon Summary Widget, Forecasts, Pledges  |
 
 ---
 
 # Hackathon Evaluation Alignment
 
+## Problem Statement Alignment
+
+- Integrated Executive Carbon Footprint Summary widget
+- AI Carbon Advisor for personalized reduction recommendations
+- Dynamic Forecast Explainer & diagnostic insights
+- Carbon Benchmark comparisons (against 500 kg CO₂e average)
+
 ## Code Quality
 
 - Feature-based architecture
-- TypeScript
+- TypeScript type-safety
 - Modular services
 - Separation of concerns
 

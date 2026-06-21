@@ -120,24 +120,70 @@ export const DashboardPage: React.FC = () => {
   return (
     <div className="space-y-6">
       
-      {/* Welcome Banner */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 dark:from-emerald-950/20 dark:to-teal-950/20 border border-emerald-500/15 dark:border-emerald-500/10 rounded-3xl p-6 sm:p-8">
-        <div>
-          <h1 className="font-display font-black text-2xl sm:text-3xl tracking-tight text-slate-900 dark:text-slate-50 mb-1">
-            How is your footprint today?
-          </h1>
-          <p className="text-sm text-slate-600 dark:text-slate-400">
-            Let's maintain your green routines. Tracking builds consciousness!
-          </p>
+      {/* Executive Carbon Overview Banner */}
+      <div className="bg-gradient-to-r from-emerald-500/10 to-teal-500/10 dark:from-emerald-950/20 dark:to-teal-950/20 border border-emerald-500/15 dark:border-emerald-500/10 rounded-3xl p-6 sm:p-8 space-y-6">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <div>
+            <h1 className="font-display font-black text-2xl sm:text-3xl tracking-tight text-slate-900 dark:text-slate-50 mb-1 text-left">
+              Carbon Footprint Overview
+            </h1>
+            <p className="text-sm text-slate-600 dark:text-slate-400 text-left">
+              Real-time monitoring of your daily activities, carbon budget limits, and reduction targets.
+            </p>
+          </div>
+          <Button
+            variant="primary"
+            onClick={() => setShowLogModal(true)}
+            leftIcon={<Plus className="w-5 h-5" />}
+            className="shadow-emerald-500/10 cursor-pointer font-semibold py-3 px-5 shrink-0"
+          >
+            Log Carbon Entry
+          </Button>
         </div>
-        <Button
-          variant="primary"
-          onClick={() => setShowLogModal(true)}
-          leftIcon={<Plus className="w-5 h-5" />}
-          className="shadow-emerald-500/10 cursor-pointer font-semibold py-3 px-5"
-        >
-          Log Activity
-        </Button>
+
+        {/* 5-Indicator Quick Carbon Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 pt-4 border-t border-emerald-500/10 text-left animate-fade-in">
+          <div className="bg-white/40 dark:bg-slate-900/40 p-4 rounded-2xl border border-emerald-500/5">
+            <span className="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 block mb-1">
+              Current Footprint
+            </span>
+            <strong className="text-lg sm:text-xl font-black font-display text-slate-900 dark:text-slate-50">
+              {Math.round(totalMonthlyEmissions)} kg CO₂e
+            </strong>
+          </div>
+          <div className="bg-white/40 dark:bg-slate-900/40 p-4 rounded-2xl border border-emerald-500/5">
+            <span className="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 block mb-1">
+              Top Source
+            </span>
+            <strong className="text-lg sm:text-xl font-black font-display text-indigo-600 dark:text-indigo-400 capitalize">
+              {recommendations.topCategory || 'None'}
+            </strong>
+          </div>
+          <div className="bg-white/40 dark:bg-slate-900/40 p-4 rounded-2xl border border-emerald-500/5">
+            <span className="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 block mb-1">
+              Reduction Potential
+            </span>
+            <strong className="text-lg sm:text-xl font-black font-display text-emerald-600 dark:text-emerald-450">
+              -{recommendations.estimatedSavingsKg} kg CO₂
+            </strong>
+          </div>
+          <div className="bg-white/40 dark:bg-slate-900/40 p-4 rounded-2xl border border-emerald-500/5">
+            <span className="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 block mb-1">
+              30-Day Forecast
+            </span>
+            <strong className="text-lg sm:text-xl font-black font-display text-amber-600 dark:text-amber-450">
+              {forecast.totalProjected30Days} kg CO₂
+            </strong>
+          </div>
+          <div className="col-span-2 md:col-span-1 bg-white/40 dark:bg-slate-900/40 p-4 rounded-2xl border border-emerald-500/5">
+            <span className="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 block mb-1">
+              Recommended Action
+            </span>
+            <p className="text-xs font-semibold text-slate-700 dark:text-slate-300 italic line-clamp-2 leading-tight">
+              "{recommendations.quickWin}"
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Grid Metrics */}
@@ -201,7 +247,7 @@ export const DashboardPage: React.FC = () => {
         <Card className="shadow-sm border-slate-200/60 dark:border-slate-800/80 flex flex-col justify-between">
           <CardHeader className="p-5">
             <span className="text-[10px] uppercase tracking-wider font-black text-slate-400 block mb-1">
-              AI Sustainability Advisor
+              AI Carbon Advisor
             </span>
             <h3 className="font-bold text-base font-display text-slate-900 dark:text-slate-50">
               Quick Wins & Insights
