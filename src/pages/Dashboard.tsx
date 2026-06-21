@@ -594,16 +594,47 @@ export const DashboardPage: React.FC = () => {
               </p>
             </div>
           </CardBody>
-          <CardFooter className="p-5 pt-2 border-t border-slate-100 dark:border-slate-800/30 bg-slate-50/50 dark:bg-slate-900/10 flex justify-between items-center text-xs">
-            <span className="text-slate-500 dark:text-slate-400 font-semibold">
-              Monthly reduction: <strong className="text-emerald-500 font-bold">-{recommendations.estimatedSavingsKg} kg</strong>
-            </span>
-            <Link 
-              to="/coach" 
-              className="text-emerald-600 dark:text-emerald-400 font-bold hover:underline"
-            >
-              Full Plan →
-            </Link>
+          <CardFooter className="p-5 pt-3 border-t border-slate-100 dark:border-slate-800/30 bg-slate-50/50 dark:bg-slate-900/10 flex flex-col gap-3 text-xs text-left">
+            <div className="flex justify-between items-center w-full">
+              <span className="text-slate-500 dark:text-slate-400 font-semibold">
+                Projected Monthly Savings:
+              </span>
+              <strong className="text-emerald-600 dark:text-emerald-400 font-black text-sm">
+                -{recommendations.estimatedSavingsKg} kg CO₂
+              </strong>
+            </div>
+
+            {recommendations.estimatedSavingsKg > 0 && (
+              <div 
+                className="grid grid-cols-3 gap-2.5 w-full pt-2.5 border-t border-slate-200/50 dark:border-slate-800/50 text-[10px] font-bold text-slate-500 dark:text-slate-400"
+                aria-label="Environmental savings equivalencies"
+              >
+                <div className="flex flex-col items-center justify-center p-2 rounded-xl bg-emerald-500/5 dark:bg-emerald-500/10 border border-emerald-500/10 hover:border-emerald-500/20 transition-all duration-200 text-center">
+                  <span className="text-base mb-1" role="img" aria-label="tree">🌳</span>
+                  <span className="text-emerald-600 dark:text-emerald-450 font-extrabold">≈ {Math.round(recommendations.estimatedSavingsKg / 20)} Trees</span>
+                  <span className="text-[8px] font-medium text-slate-400 mt-0.5">Planted</span>
+                </div>
+                <div className="flex flex-col items-center justify-center p-2 rounded-xl bg-indigo-500/5 dark:bg-indigo-500/10 border border-indigo-500/10 hover:border-indigo-500/20 transition-all duration-200 text-center">
+                  <span className="text-base mb-1" role="img" aria-label="car">🚗</span>
+                  <span className="text-indigo-600 dark:text-indigo-400 font-extrabold">≈ {Math.round(recommendations.estimatedSavingsKg * 4)} km</span>
+                  <span className="text-[8px] font-medium text-slate-400 mt-0.5">Not Driven</span>
+                </div>
+                <div className="flex flex-col items-center justify-center p-2 rounded-xl bg-amber-500/5 dark:bg-amber-500/10 border border-amber-500/10 hover:border-amber-500/20 transition-all duration-200 text-center">
+                  <span className="text-base mb-1" role="img" aria-label="coal">🔥</span>
+                  <span className="text-amber-600 dark:text-amber-450 font-extrabold">≈ {Math.round(recommendations.estimatedSavingsKg * 0.45)} kg</span>
+                  <span className="text-[8px] font-medium text-slate-400 mt-0.5">Coal Avoided</span>
+                </div>
+              </div>
+            )}
+
+            <div className="flex justify-end w-full pt-1">
+              <Link 
+                to="/coach" 
+                className="text-emerald-600 dark:text-emerald-400 font-bold hover:underline"
+              >
+                Full Plan →
+              </Link>
+            </div>
           </CardFooter>
         </Card>
 
